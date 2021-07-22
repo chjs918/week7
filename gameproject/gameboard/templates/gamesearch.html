@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% if searched %}
+        <h1 style="margin-bottom:50px;">You Searched For <i>"{{searched}}"</i></h1>
+        {% if searched_posts %}
+        {% for post in searched_posts %}
+        <article class="media content-section">
+            {% if post.img %}
+            <img class="rounded-circle article-img" src= "{{ post.image_thumbnail.url}}">
+            {% else %}
+            <img class="rounded-circle article-img" src="{% static 'noImg.gif' %}">
+            {%endif%}
+            <div class="media-body">
+            <div class="article-metadata">
+                {{ post.writer}}
+                <small class="text-muted">{{ post.created_at|date:'F d, Y' }}</small>
+            </div>
+            <h2><a class="article-title" href="{%url 'gamedetail' post.id %}">{{ post.title}}</a></h2>
+            <p class="article-content">{{ post.content}}</p>
+            </div>
+        </article>
+    {% endfor %}
+        {% else %}
+        <pr>No results found.</pr>
+        {% endif %}
+
+    {% else %}
+        <h1> Please re-enter your search term! </h1>
+    {% endif %}
+
+
+    
+{% endblock %}

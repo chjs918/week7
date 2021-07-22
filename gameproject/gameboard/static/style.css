@@ -1,0 +1,41 @@
+a:link, a:visited {
+    color: rgba(54, 0, 116, 0.932);
+    text-decoration: none;
+    display: inline-block;
+    border-radius:5px;
+    padding: 10px;
+}
+
+a:hover, a:active {
+     background-color: rgb(255, 177, 177);
+}
+
+body {
+    background-color:#dde6f0;
+    padding : 5px;
+}
+
+h1 { 
+    padding: 0.43em 1em; 
+    border-radius: 3px; 
+    color: #000000;
+}
+
+h5 {
+    font-family: serif;
+    color:#858582;
+}
+
+button {
+    background: #F2C53D;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border-radius:5px;
+    padding: 10px;
+}
+
+.d1 {
+    color: #858582;
+    font-family:inherit;
+}

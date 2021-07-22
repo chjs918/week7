@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Game Recommendation Board</h1>
+    <br>
+    <div class="contain">
+    {% for game in posts %}
+        <div class="flex-container">
+            {%if game.img %}
+            <div>
+                <img src="{{game.image_thumbnail.url}}">
+            </div>
+            {%endif%}
+            <div>
+                <h3 class="round">{{game.title}}</h3>
+                <h5><b>{{game.writer}}</b></h5>
+                <h6>{{game.game_summary}} </h6>
+            </div> 
+        </div>
+        <a href="{%url 'gamedetail' game.id %}">...more</a>
+        <br>
+        </div>
+    {% endfor %} 
+    </div>
+
+    <br>
+    {% if posts.has_previous %}
+    <a href="?page=1">First</a>
+    <a href="?page={{posts.previous_page_number}}">Previous</a>
+    {% endif %}
+
+    <span>{{posts.number}}</span>
+    <span>of</span>
+    <span>{{posts.paginator.num_pages}}</span>
+
+    {% if posts.has_next %}
+    <a href="?page={{posts.next_page_number}}">Next</a>
+    <a href="?page={{posts.paginator.num_pages}}">Last</a>
+    {% endif %}
+
+    <br> <br>
+    <div>
+        <a href="{%url 'gamenew'%}">write new</a>
+    </div>
+{% endblock %}

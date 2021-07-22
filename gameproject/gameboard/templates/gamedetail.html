@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{game.title}}</h1>
+<div class = "d1">
+{{game.writer}}
+<br>
+{{game.created_at}}
+</div>
+<hr>
+{% if game.img %}
+<p><img src="{{game.img.url}}" alt=""></p>
+{% endif %}
+<h6>{{game.content}}</h6>
+<a href ="{% url 'gameedit' game.id %}">수정하기</a>
+<a href ="{% url 'gamedelete' game.id %}">삭제하기</a>
+
+<br>
+{% endblock %}
